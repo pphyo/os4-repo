@@ -8,10 +8,11 @@ public class BuilderApp {
 		
 		Item item = builder.createItem()
 						   .addQuantity(10)
-						   .addName("Royal")
+						   .addName("Royal Sloute")
 						   .addStock(true)
 						   .addPrice(40000.546)
 						   .addQuantity(2)
+						   .addGrade('A')
 						   .build();
 		
 		String result = """

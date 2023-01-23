@@ -31,6 +31,14 @@ public class Student extends Person {
 		System.out.println("Person Count...");
 	}
 
+	public int getTotalMark() {
+		return totalMark;
+	}
+
+	public String getStuId() {
+		return stuId;
+	}
+
 }
 
 

@@ -1,8 +1,5 @@
 package com.jdc.inherit;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 public class Employee extends Person {
 	
 	public int count = 20;

@@ -29,7 +29,7 @@ public class InheritMain {
 		
 		System.out.println(zuker.getCount());
 		
-		zuker.showCount();
+//		zuker.showCount();
 	}
 	
 	static void showData(Person per) {
