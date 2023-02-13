@@ -1,12 +1,12 @@
 package com.jdc.test;
 
+import javax.persistence.Persistence;
+
 import org.junit.jupiter.api.Test;
 
 import com.jdc.app.entity.Authority;
 import com.jdc.app.entity.User;
 import com.jdc.app.entity.User.Gender;
-
-import jakarta.persistence.Persistence;
 
 class JpaTest {
 
