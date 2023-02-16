@@ -7,12 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "story")
-public class Story implements Serializable {
+@Table(name = "department")
+public class Department implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -20,12 +19,7 @@ public class Story implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(nullable = false, length = 40)
-	private String writer;
-	@Column(length = 30)
-	private String type;
-
-	@ManyToOne
-	private Movie movie;
+	private String name;
 
 	public int getId() {
 		return id;
@@ -35,28 +29,12 @@ public class Story implements Serializable {
 		this.id = id;
 	}
 
-	public String getWriter() {
-		return writer;
+	public String getName() {
+		return name;
 	}
 
-	public void setWriter(String writer) {
-		this.writer = writer;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public Movie getMovie() {
-		return movie;
-	}
-
-	public void setMovie(Movie movie) {
-		this.movie = movie;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

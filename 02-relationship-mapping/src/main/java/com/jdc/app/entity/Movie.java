@@ -10,10 +10,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.JoinTable;
 
 @Entity
 @Table(name = "movie")
@@ -30,11 +31,14 @@ public class Movie implements Serializable {
 	@Column(columnDefinition = "TINYINT check(rating >= 0 && rating <= 10)")
 	private int rating;
 
-	@OneToMany
+	@OneToOne(mappedBy = "movie")
+	private MovieType movieType;
+
+	@OneToMany(mappedBy = "movie")
 	@JoinTable(joinColumns = @JoinColumn(name = "mov_id"), inverseJoinColumns = @JoinColumn(name = "story_id"))
 	private List<Story> stories;
 
-	@ManyToOne(optional = false)
+	@ManyToOne
 	@JoinColumn(name = "cat_id")
 	private Category category;
 
@@ -84,6 +88,14 @@ public class Movie implements Serializable {
 
 	public void setStories(List<Story> stories) {
 		this.stories = stories;
+	}
+
+	public MovieType getMovieType() {
+		return movieType;
+	}
+
+	public void setMovieType(MovieType movieType) {
+		this.movieType = movieType;
 	}
 
 }

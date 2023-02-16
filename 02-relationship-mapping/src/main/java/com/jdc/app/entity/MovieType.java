@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -21,8 +20,7 @@ public class MovieType {
 //	@Column(nullable = false, columnDefinition = "default 'International'")
 	private Type type;
 
-	@OneToOne
-	@PrimaryKeyJoinColumn
+	@OneToOne(optional = false)
 	private Movie movie;
 
 	public int getId() {

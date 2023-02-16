@@ -47,7 +47,7 @@ class RelationshipTest {
 			em.close();
 	}
 
-	@Test
+//	@Test
 	void test() {
 		em.getTransaction().begin();
 		
@@ -85,6 +85,73 @@ class RelationshipTest {
 		assertEquals("Animation", resultCat.getName());
 		
 		em.getTransaction().commit();
+	}
+	
+	@Test
+	void test_for_cascade() {
+		
+		em.getTransaction().begin();
+		
+		Movie mov1 = new Movie();
+		mov1.setName("Moana");
+		mov1.setDuration(LocalTime.of(1, 50, 47));
+		mov1.setRating(8);
+		
+		Movie mov2 = new Movie();
+		mov2.setName("Fight Club");
+		mov2.setDuration(LocalTime.of(2, 30, 33));
+		mov2.setRating(10);
+		
+		//movie1 => MovieType1
+		MovieType mt1 = new MovieType();
+		mt1.setMovie(mov1);
+		mt1.setType(Type.International);
+		
+		// movie2 => MovieType2
+		MovieType mt2 = new MovieType();
+		mt2.setMovie(mov2);
+		mt2.setType(Type.International);
+		
+		em.persist(mov1);
+		em.persist(mov2);
+		em.persist(mt1);
+		em.persist(mt2);
+		
+		em.getTransaction().commit();
+		
+	}
+	
+//	@Test
+	void test_for_primary_join_column() {
+		
+		em.getTransaction().begin();
+		
+		Category c1 = new Category();
+		c1.setName("Animation");
+		
+		Category c2 = new Category();
+		c2.setName("Adventure");
+		
+		Movie m1 = new Movie();
+		m1.setName("Tarzan 2003");
+		m1.setDuration(LocalTime.of(1, 45, 32));
+		m1.setRating(9);
+		m1.setCategory(c1);
+//		m1.setCategory(c2);
+		
+		MovieType mt = new MovieType();
+		mt.setType(Type.International);
+		mt.setMovie(m1);
+		
+		em.persist(c1);
+		em.persist(c2);
+				
+		em.persist(mt);
+		
+		em.persist(m1);
+		
+		em.getTransaction().commit();
+		
 	}
 
 }

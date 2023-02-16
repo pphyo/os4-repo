@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.jdc.mvn</groupId>
-	<artifactId>02-relationship-mapping</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>hospital-management</artifactId>
+	<version>0.1</version>
 	<dependencies>
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -14,24 +14,6 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<version>8.0.32</version>
 			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-api</artifactId>
-			<version>5.9.2</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
-			<version>5.9.2</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-params</artifactId>
-			<version>5.9.2</version>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<build>
