@@ -7,7 +7,11 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Embeddable
+@Getter @Setter
 public class BookingPK implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -15,22 +19,6 @@ public class BookingPK implements Serializable {
 	private int id;
 	@Column(name = "book_time")
 	private LocalDateTime bookingTime;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public LocalDateTime getBookingTime() {
-		return bookingTime;
-	}
-
-	public void setBookingTime(LocalDateTime bookingTime) {
-		this.bookingTime = bookingTime;
-	}
 
 	@Override
 	public int hashCode() {

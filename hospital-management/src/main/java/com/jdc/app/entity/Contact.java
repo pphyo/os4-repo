@@ -7,10 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "contact")
+@Getter
+@Setter
 public class Contact implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -26,52 +32,7 @@ public class Contact implements Serializable {
 	private String quarter;
 	private String township;
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getStreet() {
-		return street;
-	}
-
-	public void setStreet(String street) {
-		this.street = street;
-	}
-
-	public String getQuarter() {
-		return quarter;
-	}
-
-	public void setQuarter(String quarter) {
-		this.quarter = quarter;
-	}
-
-	public String getTownship() {
-		return township;
-	}
-
-	public void setTownship(String township) {
-		this.township = township;
-	}
+	@OneToOne(optional = false)
+	private Patient patient;
 
 }

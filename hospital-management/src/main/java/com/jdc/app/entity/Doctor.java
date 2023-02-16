@@ -2,7 +2,12 @@ package com.jdc.app.entity;
 
 import javax.persistence.Entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
+@Getter
+@Setter
 public class Doctor extends Staff {
 
 	private static final long serialVersionUID = 1L;
@@ -21,14 +26,6 @@ public class Doctor extends Staff {
 		else if(roleType.equals(Role.Assitance_Doctor))
 			setRole(Role.Assitance_Doctor);
 		
-		this.type = type;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
 		this.type = type;
 	}
 	

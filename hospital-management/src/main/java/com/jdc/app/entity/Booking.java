@@ -6,10 +6,15 @@ import java.time.LocalTime;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "booking")
+@Getter @Setter
 public class Booking implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -19,20 +24,7 @@ public class Booking implements Serializable {
 	@Column(nullable = false, name = "check_in_time")
 	private LocalTime checkInTime;
 
-	public BookingPK getId() {
-		return id;
-	}
-
-	public void setId(BookingPK id) {
-		this.id = id;
-	}
-
-	public LocalTime getCheckInTime() {
-		return checkInTime;
-	}
-
-	public void setCheckInTime(LocalTime checkInTime) {
-		this.checkInTime = checkInTime;
-	}
+	@OneToOne(optional = false)
+	private Patient patient;
 
 }
