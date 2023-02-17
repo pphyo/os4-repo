@@ -3,6 +3,9 @@ package com.jdc.app.entity;
 import java.awt.Color;
 import java.time.LocalDate;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -18,6 +21,15 @@ public class Student extends Account {
 	private LocalDate dob;
 	@Convert(converter = ColorConverter.class)
 	private Color color;
+	
+	private Contact contact;
+	
+	@AttributeOverrides({
+		@AttributeOverride(column = @Column(name = "sec_phone"), name = "phone"),
+		@AttributeOverride(column = @Column(name = "sec_email"), name = "email"),
+		@AttributeOverride(column = @Column(name = "sec_address"), name = "address")
+	})
+	private Contact secondary;
 
 	public Student() {
 	}
@@ -41,6 +53,22 @@ public class Student extends Account {
 
 	public void setColor(Color color) {
 		this.color = color;
+	}
+
+	public Contact getContact() {
+		return contact;
+	}
+
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
+
+	public Contact getSecondary() {
+		return secondary;
+	}
+
+	public void setSecondary(Contact secondary) {
+		this.secondary = secondary;
 	}
 
 }
