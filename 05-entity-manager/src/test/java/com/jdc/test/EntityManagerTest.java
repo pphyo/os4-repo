@@ -26,6 +26,27 @@ import com.jdc.app.entity.Product;
 public class EntityManagerTest extends BaseTest {
 	
 	@Test
+	@Order(7)
+	void test_for_remove() {
+		var em = emf.createEntityManager();
+		
+		var category = em.find(Category.class, 1);
+		
+		em.getTransaction().begin();
+		em.remove(category);
+		
+		assertNotNull(category);
+		
+		assertFalse(em.contains(category));
+		
+//		em.persist(category);
+//		assertTrue(em.contains(category));
+		em.getTransaction().commit();
+		
+		em.close();
+	}
+	
+	@Test
 	@Order(6)
 	void test_for_single_fetch_mode() {
 		var em = emf.createEntityManager();
@@ -38,7 +59,7 @@ public class EntityManagerTest extends BaseTest {
 		em.close();
 		
 		assertDoesNotThrow(() -> System.out.println(product.getId()));
-		System.out.println(product.getCategory());
+//		System.out.println(product.getCategory());
 		
 //		assertAll(
 //				() -> assertDoesNotThrow(() -> System.out.println(product.getId())),

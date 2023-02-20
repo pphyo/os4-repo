@@ -1,7 +1,12 @@
-insert into category (name) values ('Foods');
-insert into category (name) values ('Drinks');
-insert into category (name) values ('Fashion');
-insert into category (name) values ('Electronics');
+insert into image (path) values ('/icons/photo1.svg');
+insert into image (path) values ('/icons/photo2.svg');
+insert into image (path) values ('/icons/photo3.svg');
+insert into image (path) values ('/icons/photo4.svg');
+
+insert into category (name, image_id) values ('Foods', 1);
+insert into category (name, image_id) values ('Drinks', 2);
+insert into category (name, image_id) values ('Fashion', 3);
+insert into category (name, image_id) values ('Electronics', 4);
 insert into category (name) values ('Furniture');
 insert into category (name) values ('Mobile');
 insert into category (name) values ('Laptop');
